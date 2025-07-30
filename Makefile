@@ -17,8 +17,8 @@ docker-run:
 
 docker-push:
 	docker login -u $(DOCKERHUB_USERNAME) -p $(DOCKERHUB_TOKEN)
-	docker tag bigscanner $(DOCKERHUB_USERNAME)/bigscanner:latest
-	docker push $(DOCKERHUB_USERNAME)/bigscanner:latest
+	docker tag $(APP_NAME) $(DOCKERHUB_USERNAME)/$(APP_NAME):latest
+	docker push $(DOCKERHUB_USERNAME)/$(APP_NAME):latest
 
 clean:
 	rm -f $(APP_NAME)

@@ -19,8 +19,8 @@ jobs:
     - name: Run tests
       run: make test
 
-    - name: Build binary
-      run: make build
+    - name: Build docker image
+      run: make docker
 
     - name: Docker push
       run: make docker-push
