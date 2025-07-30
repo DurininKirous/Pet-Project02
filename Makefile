@@ -16,7 +16,7 @@ docker-run:
 	docker run --rm -v $(PWD):/data $(APP_NAME):latest --dir /data --json
 
 docker-push:
-	docker push -u $(DOCKERHUB_USERNAME) -p $(DOCKERHUB_TOKEN)
+	docker login -u $(DOCKERHUB_USERNAME) -p $(DOCKERHUB_TOKEN)
 	docker tag bigscanner $(DOCKERHUB_USERNAME)/bigscanner:latest
 	docker push $(DOCKERHUB_USERNAME)/bigscanner:latest
 
