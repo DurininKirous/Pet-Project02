@@ -15,7 +15,7 @@ type File struct {
 }
 
 
-func ScanDir(dir string, maxDepth int) *File {
+func ScanDir(dir string, maxDepth int, absPath bool) *File {
 	maxFile := &File{Path: "null", Size: 0}
 	filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -39,6 +39,12 @@ func ScanDir(dir string, maxDepth int) *File {
 		}
 		return nil
 	})
+	if absPath {
+		abs, err := filepath.Abs(maxFile.Path)
+		if err == nil {
+			maxFile.Path = abs
+		}
+	}
 
 	return maxFile
 }

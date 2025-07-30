@@ -8,6 +8,7 @@ var (
 	MaxDepth int
 	JSONOut bool
 	HumanRead bool
+	AbsPath bool
 )
 
 func InitFlags() {
@@ -16,5 +17,6 @@ func InitFlags() {
 	flag.IntVar(&MaxDepth, "max-depth", 1, "Minimum file size in MB")
 	flag.BoolVar(&HumanRead, "human", false, "Output of size in human-readable format")
 	flag.BoolVar(&JSONOut, "json", false, "Output in JSON format")
+	flag.BoolVar(&AbsPath, "abs-path", false, "Output absolute path")
 	flag.Parse()
 }

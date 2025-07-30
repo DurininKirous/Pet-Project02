@@ -22,7 +22,7 @@ func TestScanDir(t *testing.T) {
 		t.Fatalf("failed to create big file: %v", err)
 	}
 
-	result := scanner.ScanDir(tmpDir, 0)
+	result := scanner.ScanDir(tmpDir, 0, false)
 	
 	if result.Path != bigFile {
 		t.Errorf("expected biggest file to be %s, got %s", bigFile, result.Path)

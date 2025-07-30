@@ -10,6 +10,6 @@ import (
 func main() {
 	flags.InitFlags()
 	validate.ValidateInputDir(flags.Dir)
-	file := scanner.ScanDir(flags.Dir, flags.MaxDepth)
+	file := scanner.ScanDir(flags.Dir, flags.MaxDepth, flags.AbsPath)
 	out.Print(flags.JSONOut, flags.HumanRead, file)
 }
