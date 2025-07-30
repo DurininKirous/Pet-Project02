@@ -11,5 +11,5 @@ func main() {
 	flags.InitFlags()
 	validate.ValidateInputDir(flags.Dir)
 	file := scanner.ScanDir(flags.Dir, flags.MaxDepth)
-	out.Print(flags.JSONOut, file)
+	out.Print(flags.JSONOut, flags.HumanRead, file)
 }

@@ -5,12 +5,15 @@ import (
 	"os"
 	"io/fs"
 	"path/filepath"
+	"github.com/dustin/go-humanize"
 )
 
 type File struct {
-	Path string
-	Size int64
+	Path      string `json:"path"`
+	Size      int64  `json:"size_bytes"`
+	SizeHuman string `json:"size_human"`
 }
+
 
 func ScanDir(dir string, maxDepth int) *File {
 	maxFile := &File{Path: "null", Size: 0}
@@ -31,6 +34,7 @@ func ScanDir(dir string, maxDepth int) *File {
 			if info.Size() > maxFile.Size {
 				maxFile.Path = path
 				maxFile.Size = info.Size()
+				maxFile.SizeHuman = humanize.Bytes(uint64(info.Size()))
 			}
 		}
 		return nil

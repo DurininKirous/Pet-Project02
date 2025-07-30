@@ -7,12 +7,14 @@ var (
 	//MinSize int
 	MaxDepth int
 	JSONOut bool
+	HumanRead bool
 )
 
 func InitFlags() {
 	flag.StringVar(&Dir, "dir", ".", "Directory to scan")
 	//flag.IntVar(&MinSize, "min-size", 10, "Minimum file size in MB")
 	flag.IntVar(&MaxDepth, "max-depth", 1, "Minimum file size in MB")
+	flag.BoolVar(&HumanRead, "human", false, "Output of size in human-readable format")
 	flag.BoolVar(&JSONOut, "json", false, "Output in JSON format")
 	flag.Parse()
 }
