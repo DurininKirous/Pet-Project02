@@ -3,6 +3,9 @@ APP_NAME=bigscanner
 build:
 	go build -o $(APP_NAME) ./cmd/app/main.go
 
+vet:
+	go vet ./...
+
 test:
 	go test -v ./...
 
